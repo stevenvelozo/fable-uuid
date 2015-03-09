@@ -1,6 +1,6 @@
 {
   "name": "fable-uuid",
-  "version": "0.0.0",
+  "version": "0.1.1",
   "description": "A simple UUID Generator.",
   "main": "source/Fable-UUID.js",
   "scripts": {
@@ -32,6 +32,6 @@
   "dependencies": {
     "biguint-format": "1.0.0",
     "flake-idgen": "1.0.0",
-    "fable-log": "0.1.0"
+    "fable-log": "0.1.1"
   }
 }
