@@ -96,6 +96,51 @@ suite
 							.to.not.equal(tmpUUID);
 					}
 				);
+				test
+				(
+					'Bad settings object',
+					function()
+					{
+						var tmpFableUUID = require('../source/Fable-UUID.js').new(false, _Log);
+						var tmpUUID = tmpFableUUID.getUUID();
+						Expect(tmpUUID)
+							.to.be.a('string')
+							.that.is.not.empty;
+						Expect(tmpFableUUID.getUUID())
+							.to.be.a('string')
+							.to.not.equal(tmpUUID);
+					}
+				);
+				test
+				(
+					'Settings object without a UUID definition',
+					function()
+					{
+						var tmpFableUUID = require('../source/Fable-UUID.js').new({}, _Log);
+						var tmpUUID = tmpFableUUID.getUUID();
+						Expect(tmpUUID)
+							.to.be.a('string')
+							.that.is.not.empty;
+						Expect(tmpFableUUID.getUUID())
+							.to.be.a('string')
+							.to.not.equal(tmpUUID);
+					}
+				);
+				test
+				(
+					'Settings object with a bad UUID definition',
+					function()
+					{
+						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUID: {DataCenter:'BAD',Worker:'JOB'}}, _Log);
+						var tmpUUID = tmpFableUUID.getUUID();
+						Expect(tmpUUID)
+							.to.be.a('string')
+							.that.is.not.empty;
+						Expect(tmpFableUUID.getUUID())
+							.to.be.a('string')
+							.to.not.equal(tmpUUID);
+					}
+				);
 			}
 		);
 	}
