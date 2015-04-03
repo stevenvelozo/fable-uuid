@@ -22,8 +22,6 @@ var _MockSettings = (
 			Worker: 0
 		})
 });
-var _Log = require('fable-log');
-_Log.initialize();
 
 suite
 (
@@ -67,7 +65,7 @@ suite
 					'properly initialized class parameters',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new(_MockSettings, _Log);
+						var tmpFableUUID = require('../source/Fable-UUID.js').new(_MockSettings);
 						Expect(tmpFableUUID).to.have.a.property('new')
 							.that.is.a('function');
 						Expect(tmpFableUUID).to.have.a.property('getUUID')
@@ -86,7 +84,7 @@ suite
 					'Generating a UUID',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new(_MockSettings, _Log);
+						var tmpFableUUID = require('../source/Fable-UUID.js').new(_MockSettings);
 						var tmpUUID = tmpFableUUID.getUUID();
 						Expect(tmpUUID)
 							.to.be.a('string')
@@ -101,7 +99,7 @@ suite
 					'Bad settings object',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new(false, _Log);
+						var tmpFableUUID = require('../source/Fable-UUID.js').new(false);
 						var tmpUUID = tmpFableUUID.getUUID();
 						Expect(tmpUUID)
 							.to.be.a('string')
@@ -116,7 +114,7 @@ suite
 					'Settings object without a UUID definition',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new({}, _Log);
+						var tmpFableUUID = require('../source/Fable-UUID.js').new({});
 						var tmpUUID = tmpFableUUID.getUUID();
 						Expect(tmpUUID)
 							.to.be.a('string')
@@ -131,7 +129,7 @@ suite
 					'Settings object with a bad UUID definition',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUID: {DataCenter:'BAD',Worker:'JOB'}}, _Log);
+						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUID: {DataCenter:'BAD',Worker:'JOB'}});
 						var tmpUUID = tmpFableUUID.getUUID();
 						Expect(tmpUUID)
 							.to.be.a('string')

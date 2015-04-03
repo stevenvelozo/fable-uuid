@@ -15,16 +15,9 @@
 */
 var FableUUID = function()
 {
-	function createNew(pSettings, pLogProvider)
+	function createNew(pSettings)
 	{
-		// This generates an object that requires you to construct it with new(Settings,Provider) before using it...
-		if (typeof(pLogProvider) !== 'object')
-		{
-			return {new: createNew};
-		}
-
 		var _Settings = pSettings;
-		var _Log = pLogProvider;
 
 		// Provide sane defaults for data center and worker.
 		var _DataCenter = 0;
@@ -47,8 +40,6 @@ var FableUUID = function()
 		var libFlakeIDGen = require('flake-idgen');
 		var FlakeIDGenerator = new libFlakeIDGen({ datacenter:_DataCenter, worker:_Worker });
 		var libIntFormat = require('biguint-format');
-
-		_Log.trace('Fable UUID Generator Initialized with DataCenter #'+_DataCenter+' and Worker #'+_Worker);
 
 		/***
 		 * Return a nice string UUID
