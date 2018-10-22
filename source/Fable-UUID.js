@@ -7,6 +7,8 @@
 * @module Fable UUID
 */
 
+const libUUID = require('uuid');
+
 /**
 * Fable Solution UUID Generation Main Class
 *
@@ -37,16 +39,12 @@ var FableUUID = function()
 			}
 		}
 
-		var libFlakeIDGen = require('flake-idgen');
-		var FlakeIDGenerator = new libFlakeIDGen({ datacenter:_DataCenter, worker:_Worker });
-		var libIntFormat = require('biguint-format');
-
 		/***
 		 * Return a nice string UUID
 		 */
 		var getUUID = function()
 		{
-			return libIntFormat(FlakeIDGenerator.next(), 'hex', { prefix: '0x' });
+			return _DataCenter.toString() + _Worker + 'x' + libUUID.v4().replace(/\-/g, '');
 		};
 
 		/**
