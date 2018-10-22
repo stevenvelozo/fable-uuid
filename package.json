@@ -30,7 +30,6 @@
     "mocha": "5.2.0"
   },
   "dependencies": {
-    "biguint-format2": "^1.0.0",
     "uuid": "^3.3.2"
   }
 }
