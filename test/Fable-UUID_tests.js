@@ -14,13 +14,7 @@ var Assert = Chai.assert;
 var _MockSettings = (
 {
 	Product: 'FableUUID',
-	ProductVersion: '0.0.0',
-
-	UUID: (
-		{
-			DataCenter: 0,
-			Worker: 0
-		})
+	ProductVersion: '0.0.0'
 });
 
 suite
@@ -56,20 +50,7 @@ suite
 					function()
 					{
 						var tmpFableUUID = require('../source/Fable-UUID.js').new();
-						Expect(tmpFableUUID).to.have.a.property('new')
-							.that.is.a('function');
-					}
-				);
-				test
-				(
-					'properly initialized class parameters',
-					function()
-					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new(_MockSettings);
-						Expect(tmpFableUUID).to.have.a.property('new')
-							.that.is.a('function');
-						Expect(tmpFableUUID).to.have.a.property('getUUID')
-							.that.is.a('function');
+						Expect(tmpFableUUID).to.be.an('object');
 					}
 				);
 			}
@@ -101,6 +82,7 @@ suite
 					{
 						var tmpFableUUID = require('../source/Fable-UUID.js').new(false);
 						var tmpUUID = tmpFableUUID.getUUID();
+						console.log(`Standard UUID Generated: [${tmpUUID}]`);
 						Expect(tmpUUID)
 							.to.be.a('string')
 							.that.is.not.empty;
@@ -134,6 +116,60 @@ suite
 						Expect(tmpUUID)
 							.to.be.a('string')
 							.that.is.not.empty;
+						Expect(tmpFableUUID.getUUID())
+							.to.be.a('string')
+							.to.not.equal(tmpUUID);
+					}
+				);
+				test
+				(
+					'Random bytes',
+					function()
+					{
+						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUIDModeRandom: true});
+						var tmpUUID = tmpFableUUID.getUUID();
+						console.log(`Random UUID Generated: [${tmpUUID}]`);
+						Expect(tmpUUID)
+							.to.be.a('string')
+							.that.is.not.empty;
+						Expect(tmpFableUUID.getUUID())
+							.to.be.a('string')
+							.to.not.equal(tmpUUID);
+					}
+				);
+				test
+				(
+					'Random bytes',
+					function()
+					{
+						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUIDModeRandom: true, UUIDLength: 5});
+						var tmpUUID = tmpFableUUID.getUUID();
+						console.log(`Very short Random UUID Generated: [${tmpUUID}]`);
+						Expect(tmpUUID)
+							.to.be.a('string')
+							.that.is.not.empty;
+						Expect(tmpUUID.length)
+							.to.equal(5);
+						Expect(tmpFableUUID.getUUID())
+							.to.be.a('string')
+							.to.not.equal(tmpUUID);
+					}
+				);
+				test
+				(
+					'Random bytes custom dictionary',
+					function()
+					{
+						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUIDModeRandom: true, UUIDLength: 50, UUIDDictionary: 'ab'});
+						var tmpUUID = tmpFableUUID.getUUID();
+						console.log(`Long Random UUID Generated with custom dictionary: [${tmpUUID}]`);
+						Expect(tmpUUID)
+							.to.be.a('string')
+							.that.is.not.empty;
+						Expect(tmpUUID.indexOf('a'))
+							.to.not.equal(-1);
+						Expect(tmpUUID.length)
+							.to.equal(50);
 						Expect(tmpFableUUID.getUUID())
 							.to.be.a('string')
 							.to.not.equal(tmpUUID);

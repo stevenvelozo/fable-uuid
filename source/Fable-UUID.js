@@ -13,55 +13,92 @@
 * @class FableUUID
 * @constructor
 */
-var FableUUID = function()
+
+var libRandomByteGenerator = require('./Fable-UUID-Random.js')
+
+class FableUUID
 {
-	function createNew(pSettings)
+	constructor(pSettings)
 	{
-		var _Settings = pSettings;
+		// Determine if the module is in "Random UUID Mode" which means just use the random character function rather than the v4 random UUID spec.
+		// Note this allows UUIDs of various lengths (including very short ones) although guaranteed uniqueness goes downhill fast.
+		this._UUIDModeRandom = (typeof(pSettings) === 'object') && (pSettings.hasOwnProperty('UUIDModeRandom')) ? (pSettings.UUIDModeRandom == true) : false;
+		// These two properties are only useful if we are in Random mode.  Otherwise it generates a v4 spec
+		// Length for "Random UUID Mode" is set -- if not set it to 8
+		this._UUIDLength = (typeof(pSettings) === 'object') && (pSettings.hasOwnProperty('UUIDLength')) ? (pSettings.UUIDLength + 0) : 8;
+		// Dictionary for "Random UUID Mode"
+		this._UUIDRandomDictionary = (typeof(pSettings) === 'object') && (pSettings.hasOwnProperty('UUIDDictionary')) ? (pSettings.UUIDDictionary + 0) : '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-		// Provide sane defaults for data center and worker.
-		var _DataCenter = 0;
-		var _Worker = 0;
+		this.randomByteGenerator = new libRandomByteGenerator();
 
-		// Validate settings a lot
-		if ((typeof(_Settings) === 'object') && 
-			(typeof(_Settings.UUID) === 'object'))
+		// Lookup table for hex codes
+		this._HexLookup = [];
+		for (let i = 0; i < 256; ++i)
 		{
-			if (0 === _Settings.UUID.DataCenter % (!isNaN(parseFloat(_Settings.UUID.DataCenter)) && 0 <= ~~_Settings.UUID.DataCenter))
-			{
-				_DataCenter = _Settings.UUID.DataCenter;
-			}
-			if (0 === _Settings.UUID.Worker % (!isNaN(parseFloat(_Settings.UUID.Worker)) && 0 <= ~~_Settings.UUID.Worker))
-			{
-				_Worker = _Settings.UUID.Worker;
-			}
+			this._HexLookup[i] = (i + 0x100).toString(16).substr(1);
 		}
-
-		var libFlakeIDGen = require('flake-idgen');
-		var FlakeIDGenerator = new libFlakeIDGen({ datacenter:_DataCenter, worker:_Worker });
-		var libIntFormat = require('biguint-format');
-
-		/***
-		 * Return a nice string UUID
-		 */
-		var getUUID = function()
-		{
-			return libIntFormat(FlakeIDGenerator.next(), 'hex', { prefix: '0x' });
-		};
-
-		/**
-		* Container Object for our Factory Pattern
-		*/
-		var tmpNewFableUUID = (
-		{
-			getUUID: getUUID,
-			new: createNew
-		});
-
-		return tmpNewFableUUID;
 	}
 
-	return createNew();
-};
+	// Adapted from node-uuid (https://github.com/kelektiv/node-uuid)
+	bytesToUUID(pBuffer)
+	{
+		let i = 0;
+		// join used to fix memory issue caused by concatenation: https://bugs.chromium.org/p/v8/issues/detail?id=3175#c4
+		return ([
+					this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], 
+					this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], '-',
+					this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], '-',
+					this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], '-',
+					this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], '-',
+					this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]], this._HexLookup[pBuffer[i++]]
+				]).join('');
+	}
 
-module.exports = new FableUUID();
+	// Adapted from node-uuid (https://github.com/kelektiv/node-uuid)
+	generateUUIDv4()
+	{
+		let tmpBuffer = new Array(16);
+		var tmpRandomBytes = this.randomByteGenerator.generate();
+
+		// Per 4.4, set bits for version and `clock_seq_hi_and_reserved`
+		tmpRandomBytes[6] = (tmpRandomBytes[6] & 0x0f) | 0x40;
+		tmpRandomBytes[8] = (tmpRandomBytes[8] & 0x3f) | 0x80;
+
+		return this.bytesToUUID(tmpRandomBytes);
+	}
+
+	// Simple random UUID generation
+	generateRandom()
+	{
+		let tmpUUID = '';
+
+		for (let i = 0; i < this._UUIDLength; i++)
+		{
+			tmpUUID += this._UUIDRandomDictionary.charAt(Math.floor(Math.random() * (this._UUIDRandomDictionary.length-1)));
+		}
+
+		return tmpUUID;
+	}
+
+	// Adapted from node-uuid (https://github.com/kelektiv/node-uuid)
+	getUUID()
+	{
+		if (this._UUIDModeRandom)
+		{
+			return this.generateRandom();
+		}
+		else
+		{
+			return this.generateUUIDv4();
+		}
+	}
+}
+
+// This is for backwards compatibility
+function autoConstruct(pSettings)
+{
+	return new FableUUID(pSettings);
+}
+
+
+module.exports = {new:autoConstruct, FableUUID:FableUUID};
