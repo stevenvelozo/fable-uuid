@@ -1,6 +1,6 @@
 {
   "name": "fable-uuid",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A simple UUID Generator.",
   "main": "source/Fable-UUID.js",
   "scripts": {
