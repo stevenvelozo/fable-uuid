@@ -1,6 +1,6 @@
 {
   "name": "fable-uuid",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A simple UUID Generator.",
   "main": "source/Fable-UUID.js",
   "scripts": {
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/stevenvelozo/fable-uuid/issues"
   },
-"browser": {
+  "browser": {
     "./source/Fable-UUID-Random.js": "./source/Fable-UUID-Random-Browser.js"
   },
   "homepage": "https://github.com/stevenvelozo/fable-uuid",

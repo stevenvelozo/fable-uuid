@@ -34,7 +34,6 @@ class RandomBytes
 	// Math.random()-based (RNG)
 	generateRandomBytes()
 	{
-		//
 		// If all else fails, use Math.random().  It's fast, but is of unspecified
 		// quality.
 		let tmpBuffer = new Uint8Array(16); // eslint-disable-line no-undef
@@ -56,11 +55,11 @@ class RandomBytes
 	{
 		if (this.getRandomValues)
 		{
-			return generateWhatWGBytes();
+			return this.generateWhatWGBytes();
 		}
 		else
 		{
-			return generateRandomBytes();
+			return this.generateRandomBytes();
 		}
 	}
 }
