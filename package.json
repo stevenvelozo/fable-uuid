@@ -9,7 +9,7 @@
     "test": "./node_modules/.bin/mocha -u tdd -R spec",
     "build": "./node_modules/.bin/gulp build",
     "docker-dev-build-image": "docker build ./ -f Dockerfile_LUXURYCode -t retold/fable-uuid:local",
-    "docker-dev-run": "docker run -it -d --name retold-fable-uuid-dev -p 30002:8080 -v \"$PWD/.config:/home/coder/.config\"  -v \"$PWD:/home/coder/fableuuid\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" retold/fable-uuid:local"
+    "docker-dev-run": "docker run -it -d --name retold-fable-uuid-dev -p 30002:8080 -v \"$PWD/.config:/home/coder/.config\"  -v \"$PWD:/home/coder/fable-uuid\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" retold/fable-uuid:local"
   },
   "mocha": {
     "diff": true,
