@@ -139,7 +139,7 @@ suite
 				);
 				test
 				(
-					'Random bytes',
+					'Random bytes with length check',
 					function()
 					{
 						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUIDModeRandom: true, UUIDLength: 5});
