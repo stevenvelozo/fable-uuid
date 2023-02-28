@@ -10,6 +10,8 @@ var Chai = require("chai");
 var Expect = Chai.expect;
 var Assert = Chai.assert;
 
+const libFableUUID = require('../source/Fable-UUID.js');
+
 // Create mock settings and logging objects
 var _MockSettings = (
 {
@@ -39,7 +41,17 @@ suite
 					'initialize should build a happy little object',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new();
+						var tmpFableUUID = new libFableUUID();
+						Expect(tmpFableUUID)
+							.to.be.an('object', 'Fable-UUID should initialize as an object directly from the require statement.');
+					}
+				);
+				test
+				(
+					'legacy new() initialization should build a happy little object',
+					function()
+					{
+						var tmpFableUUID = libFableUUID.new();
 						Expect(tmpFableUUID)
 							.to.be.an('object', 'Fable-UUID should initialize as an object directly from the require statement.');
 					}
@@ -49,7 +61,7 @@ suite
 					'basic class parameters',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new();
+						var tmpFableUUID = new libFableUUID();
 						Expect(tmpFableUUID).to.be.an('object');
 					}
 				);
@@ -65,7 +77,7 @@ suite
 					'Generating a UUID',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new(_MockSettings);
+						var tmpFableUUID = new libFableUUID();
 						var tmpUUID = tmpFableUUID.getUUID();
 						Expect(tmpUUID)
 							.to.be.a('string')
@@ -80,7 +92,7 @@ suite
 					'Bad settings object',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new(false);
+						var tmpFableUUID = new libFableUUID();
 						var tmpUUID = tmpFableUUID.getUUID();
 						console.log(`Standard UUID Generated: [${tmpUUID}]`);
 						Expect(tmpUUID)
@@ -96,7 +108,7 @@ suite
 					'Settings object without a UUID definition',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new({});
+						var tmpFableUUID = new libFableUUID();
 						var tmpUUID = tmpFableUUID.getUUID();
 						Expect(tmpUUID)
 							.to.be.a('string')
@@ -111,7 +123,7 @@ suite
 					'Settings object with a bad UUID definition',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUID: {DataCenter:'BAD',Worker:'JOB'}});
+						var tmpFableUUID = new libFableUUID({UUID: {DataCenter:'BAD',Worker:'JOB'}});
 						var tmpUUID = tmpFableUUID.getUUID();
 						Expect(tmpUUID)
 							.to.be.a('string')
@@ -126,7 +138,7 @@ suite
 					'Random bytes',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUIDModeRandom: true});
+						var tmpFableUUID = new libFableUUID({UUIDModeRandom: true});
 						var tmpUUID = tmpFableUUID.getUUID();
 						console.log(`Random UUID Generated: [${tmpUUID}]`);
 						Expect(tmpUUID)
@@ -142,7 +154,7 @@ suite
 					'Random bytes with length check',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUIDModeRandom: true, UUIDLength: 5});
+						var tmpFableUUID = new libFableUUID({UUIDModeRandom: true, UUIDLength: 5});
 						var tmpUUID = tmpFableUUID.getUUID();
 						console.log(`Very short Random UUID Generated: [${tmpUUID}]`);
 						Expect(tmpUUID)
@@ -160,7 +172,7 @@ suite
 					'Random bytes custom dictionary',
 					function()
 					{
-						var tmpFableUUID = require('../source/Fable-UUID.js').new({UUIDModeRandom: true, UUIDLength: 50, UUIDDictionary: 'ab'});
+						var tmpFableUUID = new libFableUUID({UUIDModeRandom: true, UUIDLength: 50, UUIDDictionary: 'ab'});
 						var tmpUUID = tmpFableUUID.getUUID();
 						console.log(`Long Random UUID Generated with custom dictionary: [${tmpUUID}]`);
 						Expect(tmpUUID)

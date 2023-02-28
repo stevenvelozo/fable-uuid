@@ -101,4 +101,5 @@ function autoConstruct(pSettings)
 }
 
 
-module.exports = {new:autoConstruct, FableUUID:FableUUID};
+module.exports = FableUUID;
+module.exports.new = autoConstruct;

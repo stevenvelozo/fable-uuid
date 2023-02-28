@@ -190,10 +190,8 @@
       function autoConstruct(pSettings) {
         return new FableUUID(pSettings);
       }
-      module.exports = {
-        new: autoConstruct,
-        FableUUID: FableUUID
-      };
+      module.exports = FableUUID;
+      module.exports.new = autoConstruct;
     }, {
       "./Fable-UUID-Random.js": 2
     }]
