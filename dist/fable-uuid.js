@@ -168,21 +168,10 @@
     5: [function (require, module, exports) {
       /**
       * Fable UUID Generator
-      *
-      * @license MIT
-      *
-      * @author Steven Velozo <steven@velozo.com>
-      * @module Fable UUID
-      */
-
-      /**
-      * Fable Solution UUID Generation Main Class
-      *
-      * @class FableUUID
-      * @constructor
       */
 
       const libFableServiceProviderBase = require('fable-serviceproviderbase').CoreServiceProviderBase;
+      0;
       const libRandomByteGenerator = require('./Fable-UUID-Random.js');
       class FableUUID extends libFableServiceProviderBase {
         constructor(pSettings, pServiceHash) {
