@@ -46,6 +46,59 @@
   }()({
     1: [function (require, module, exports) {
       /**
+      * Fable Core Pre-initialization Service Base
+      *
+      * For a couple services, we need to be able to instantiate them before the Fable object is fully initialized.
+      * This is a base class for those services.
+      *
+      * @license MIT
+      * @author <steven@velozo.com>
+      */
+
+      class FableCoreServiceProviderBase {
+        constructor(pOptions, pServiceHash) {
+          this.fable = false;
+          this.options = typeof pOptions === 'object' ? pOptions : {};
+          this.serviceType = 'Unknown';
+
+          // The hash will be a non-standard UUID ... the UUID service uses this base class!
+          this.UUID = `CORESVC-${Math.floor(Math.random() * (99999 - 10000) + 10000)}`;
+          this.Hash = typeof pServiceHash === 'string' ? pServiceHash : `${this.UUID}`;
+        }
+        static isFableService = true;
+
+        // After fable is initialized, it would be expected to be wired in as a normal service.
+        connectFable(pFable) {
+          this.fable = pFable;
+          return true;
+        }
+      }
+      module.exports = FableCoreServiceProviderBase;
+    }, {}],
+    2: [function (require, module, exports) {
+      /**
+      * Fable Service Base
+      * @license MIT
+      * @author <steven@velozo.com>
+      */
+
+      class FableServiceProviderBase {
+        constructor(pFable, pOptions, pServiceHash) {
+          this.fable = pFable;
+          this.options = typeof pOptions === 'object' ? pOptions : {};
+          this.serviceType = 'Unknown';
+          this.UUID = pFable.getUUID();
+          this.Hash = typeof pServiceHash === 'string' ? pServiceHash : `${this.UUID}`;
+        }
+        static isFableService = true;
+      }
+      module.exports = FableServiceProviderBase;
+      module.exports.CoreServiceProviderBase = require('./Fable-ServiceProviderBase-Preinit.js');
+    }, {
+      "./Fable-ServiceProviderBase-Preinit.js": 1
+    }],
+    3: [function (require, module, exports) {
+      /**
       * Simple browser shim loader - assign the npm module to a window global automatically
       *
       * @license MIT
@@ -57,9 +110,9 @@
       }
       module.exports = libNPMModuleWrapper;
     }, {
-      "./Fable-UUID.js": 3
+      "./Fable-UUID.js": 5
     }],
-    2: [function (require, module, exports) {
+    4: [function (require, module, exports) {
       /**
       * Random Byte Generator - Browser version
       *
@@ -112,7 +165,7 @@
       }
       module.exports = RandomBytes;
     }, {}],
-    3: [function (require, module, exports) {
+    5: [function (require, module, exports) {
       /**
       * Fable UUID Generator
       *
@@ -129,9 +182,13 @@
       * @constructor
       */
 
-      var libRandomByteGenerator = require('./Fable-UUID-Random.js');
-      class FableUUID {
-        constructor(pSettings) {
+      const libFableServiceProviderBase = require('fable-serviceproviderbase').CoreServiceProviderBase;
+      const libRandomByteGenerator = require('./Fable-UUID-Random.js');
+      class FableUUID extends libFableServiceProviderBase {
+        constructor(pSettings, pServiceHash) {
+          super(pSettings, pServiceHash);
+          this.serviceType = 'UUID';
+
           // Determine if the module is in "Random UUID Mode" which means just use the random character function rather than the v4 random UUID spec.
           // Note this allows UUIDs of various lengths (including very short ones) although guaranteed uniqueness goes downhill fast.
           this._UUIDModeRandom = typeof pSettings === 'object' && pSettings.hasOwnProperty('UUIDModeRandom') ? pSettings.UUIDModeRandom == true : false;
@@ -193,7 +250,8 @@
       module.exports = FableUUID;
       module.exports.new = autoConstruct;
     }, {
-      "./Fable-UUID-Random.js": 2
+      "./Fable-UUID-Random.js": 4,
+      "fable-serviceproviderbase": 2
     }]
-  }, {}, [1])(1);
+  }, {}, [3])(3);
 });

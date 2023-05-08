@@ -1,6 +1,6 @@
 {
   "name": "fable-uuid",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "A simple UUID Generator.",
   "main": "source/Fable-UUID.js",
   "scripts": {
@@ -58,5 +58,7 @@
     "vinyl-buffer": "^1.0.1",
     "vinyl-source-stream": "^2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fable-serviceproviderbase": "^3.0.2"
+  }
 }

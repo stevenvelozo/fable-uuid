@@ -14,12 +14,17 @@
 * @constructor
 */
 
-var libRandomByteGenerator = require('./Fable-UUID-Random.js')
+const libFableServiceProviderBase = require('fable-serviceproviderbase').CoreServiceProviderBase;
+const libRandomByteGenerator = require('./Fable-UUID-Random.js')
 
-class FableUUID
+class FableUUID extends libFableServiceProviderBase
 {
-	constructor(pSettings)
+	constructor(pSettings, pServiceHash)
 	{
+		super(pSettings, pServiceHash);
+
+		this.serviceType = 'UUID';
+
 		// Determine if the module is in "Random UUID Mode" which means just use the random character function rather than the v4 random UUID spec.
 		// Note this allows UUIDs of various lengths (including very short ones) although guaranteed uniqueness goes downhill fast.
 		this._UUIDModeRandom = (typeof(pSettings) === 'object') && (pSettings.hasOwnProperty('UUIDModeRandom')) ? (pSettings.UUIDModeRandom == true) : false;
