@@ -101,7 +101,6 @@
       /**
       * Simple browser shim loader - assign the npm module to a window global automatically
       *
-      * @license MIT
       * @author <steven@velozo.com>
       */
       var libNPMModuleWrapper = require('./Fable-UUID.js');
@@ -116,7 +115,6 @@
       /**
       * Random Byte Generator - Browser version
       *
-      * @license MIT
       *
       * @author Steven Velozo <steven@velozo.com>
       */

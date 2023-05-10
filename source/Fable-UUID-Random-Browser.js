@@ -1,7 +1,6 @@
 /**
 * Random Byte Generator - Browser version
 *
-* @license MIT
 *
 * @author Steven Velozo <steven@velozo.com>
 */
