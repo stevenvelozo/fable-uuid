@@ -1,6 +1,6 @@
 {
   "name": "fable-uuid",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "A simple UUID Generator.",
   "main": "source/Fable-UUID.js",
   "scripts": {
@@ -47,7 +47,7 @@
   "homepage": "https://github.com/stevenvelozo/fable-uuid",
   "devDependencies": {
     "browserify": "^17.0.0",
-    "chai": "4.3.7",
+    "chai": "4.3.10",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-sourcemaps": "^3.0.0",
@@ -59,6 +59,6 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
-    "fable-serviceproviderbase": "^3.0.2"
+    "fable-serviceproviderbase": "^3.0.12"
   }
 }
