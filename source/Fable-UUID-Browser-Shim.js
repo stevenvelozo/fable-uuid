@@ -5,7 +5,7 @@
 */
 var libNPMModuleWrapper = require('./Fable-UUID.js');
 
-if ((typeof(window) === 'object') && !window.hasOwnProperty('FableUUID'))
+if ((typeof(window) === 'object') && !('FableUUID' in window))
 {
 	window.FableUUID = libNPMModuleWrapper;
 }

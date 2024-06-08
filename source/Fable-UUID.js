@@ -16,12 +16,12 @@ class FableUUID extends libFableServiceProviderBase
 
 		// Determine if the module is in "Random UUID Mode" which means just use the random character function rather than the v4 random UUID spec.
 		// Note this allows UUIDs of various lengths (including very short ones) although guaranteed uniqueness goes downhill fast.
-		this._UUIDModeRandom = (typeof(pSettings) === 'object') && (pSettings.hasOwnProperty('UUIDModeRandom')) ? (pSettings.UUIDModeRandom == true) : false;
+		this._UUIDModeRandom = (typeof(pSettings) === 'object') && ('UUIDModeRandom' in pSettings) ? (pSettings.UUIDModeRandom == true) : false;
 		// These two properties are only useful if we are in Random mode.  Otherwise it generates a v4 spec
 		// Length for "Random UUID Mode" is set -- if not set it to 8
-		this._UUIDLength = (typeof(pSettings) === 'object') && (pSettings.hasOwnProperty('UUIDLength')) ? (pSettings.UUIDLength + 0) : 8;
+		this._UUIDLength = (typeof(pSettings) === 'object') && ('UUIDLength' in pSettings) ? (pSettings.UUIDLength + 0) : 8;
 		// Dictionary for "Random UUID Mode"
-		this._UUIDRandomDictionary = (typeof(pSettings) === 'object') && (pSettings.hasOwnProperty('UUIDDictionary')) ? (pSettings.UUIDDictionary + 0) : '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+		this._UUIDRandomDictionary = (typeof(pSettings) === 'object') && ('UUIDDictionary' in pSettings) ? (pSettings.UUIDDictionary + 0) : '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 		this.randomByteGenerator = new libRandomByteGenerator();
 
