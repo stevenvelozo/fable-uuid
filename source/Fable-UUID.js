@@ -6,6 +6,8 @@ const libFableServiceProviderBase = require('fable-serviceproviderbase').CoreSer
 
 const libRandomByteGenerator = require('./Fable-UUID-Random.js')
 
+const libPackage = require('../package.json');
+
 class FableUUID extends libFableServiceProviderBase
 {
 	constructor(pSettings, pServiceHash)
@@ -13,7 +15,8 @@ class FableUUID extends libFableServiceProviderBase
 		super(pSettings, pServiceHash);
 
 		this.serviceType = 'UUID';
-		this._Package = require('../package.json');
+		/** @type {Object} */
+		this._Package = libPackage;
 
 		// Determine if the module is in "Random UUID Mode" which means just use the random character function rather than the v4 random UUID spec.
 		// Note this allows UUIDs of various lengths (including very short ones) although guaranteed uniqueness goes downhill fast.
