@@ -1,6 +1,6 @@
 {
   "name": "fable-uuid",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "A simple UUID Generator.",
   "main": "source/Fable-UUID.js",
   "scripts": {
@@ -49,6 +49,6 @@
     "quackage": "^1.0.33"
   },
   "dependencies": {
-    "fable-serviceproviderbase": "^3.0.12"
+    "fable-serviceproviderbase": "^3.0.14"
   }
 }
