@@ -13,6 +13,7 @@ class FableUUID extends libFableServiceProviderBase
 		super(pSettings, pServiceHash);
 
 		this.serviceType = 'UUID';
+		this._Package = require('../package.json');
 
 		// Determine if the module is in "Random UUID Mode" which means just use the random character function rather than the v4 random UUID spec.
 		// Note this allows UUIDs of various lengths (including very short ones) although guaranteed uniqueness goes downhill fast.
