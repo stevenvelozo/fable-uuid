@@ -52,11 +52,13 @@ Full documentation is available at **[stevenvelozo.github.io/fable-uuid](https:/
 
 ## Related Packages
 
-- [fable](https://github.com/stevenvelozo/fable) - Service provider framework
-- [fable-serviceproviderbase](https://github.com/stevenvelozo/fable-serviceproviderbase) - Base class for Fable services
-- [fable-log](https://github.com/stevenvelozo/fable-log) - Logging service for Fable
-- [fable-settings](https://github.com/stevenvelozo/fable-settings) - Settings management for Fable
+- [fable](https://github.com/stevenvelozo/fable) - Application services framework
+- [fable-serviceproviderbase](https://github.com/stevenvelozo/fable-serviceproviderbase) - Service provider base class
 
 ## License
 
 MIT
+
+## Contributing
+
+Pull requests are welcome. For details on our code of conduct, contribution process, and testing requirements, see the [Retold Contributing Guide](https://github.com/stevenvelozo/retold/blob/main/docs/contributing.md).
