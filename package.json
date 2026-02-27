@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node source/Fable-UUID.js",
     "coverage": "npx quack coverage",
-    "test": "npx mocha -u tdd --exit -R spec",
+    "test": "npx quack test",
     "build": "npx quack build",
     "docker-dev-build-image": "docker build ./ -f Dockerfile_LUXURYCode -t retold/fable-uuid:local",
     "docker-dev-run": "docker run -it -d --name retold-fable-uuid-dev -p 30002:8080 -v \"$PWD/.config:/home/coder/.config\"  -v \"$PWD:/home/coder/fable-uuid\" -u \"$(id -u):$(id -g)\" -e \"DOCKER_USER=$USER\" retold/fable-uuid:local"
