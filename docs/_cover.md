@@ -1,4 +1,4 @@
-# Fable-UUID <small>3</small>
+# Fable-UUID
 
 > A simple, flexible UUID generator for Node.js and browsers
 
