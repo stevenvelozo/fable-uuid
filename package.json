@@ -46,8 +46,8 @@
   },
   "homepage": "https://github.com/stevenvelozo/fable-uuid",
   "devDependencies": {
-    "pict-docuserve": "^0.1.5",
-    "quackage": "^1.1.2"
+    "pict-docuserve": "^1.0.1",
+    "quackage": "^1.2.3"
   },
   "dependencies": {
     "fable-serviceproviderbase": "^3.0.19"
