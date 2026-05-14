@@ -117,6 +117,11 @@ Feature requests are welcome! Please:
 - Place opening braces on the same line
 
 ```javascript
+// Style reference — `doSomething` and `transform` are placeholders,
+// so the example uses local stubs so it actually runs and prints.
+const doSomething = () => 'did something';
+const transform   = (pInput) => ({ Transformed: pInput });
+
 // Good
 const myFunction = (pParameter) =>
 {
@@ -126,6 +131,8 @@ const myFunction = (pParameter) =>
     }
     return null;
 };
+console.log("myFunction(true) ->", myFunction(true));
+console.log("myFunction(false) ->", myFunction(false));
 
 // Parameter naming convention: prefix with 'p'
 function processData(pInputData, pOptions)
@@ -133,9 +140,11 @@ function processData(pInputData, pOptions)
     let tmpResult = transform(pInputData);
     return tmpResult;
 }
+console.log("processData({a:1}) ->", processData({a: 1}, {}));
 
 // Temporary variable naming: prefix with 'tmp'
 let tmpCounter = 0;
+console.log("tmpCounter ->", tmpCounter);
 ```
 
 ### Naming Conventions
@@ -169,6 +178,17 @@ npm run coverage
 - Keep tests focused and independent
 
 ```javascript
+// Mocha + Chai style — the suite/test/Expect globals come from the
+// test runner at `npm test`.  In the playground we stub them so the
+// shape of a real test is demonstrable, and the assertion runs
+// against a local fake instead of a real subject under test.
+const suite  = (pName, pBody) => { console.log('suite:', pName); pBody(); };
+const test   = (pName, pBody) => { console.log('  test:', pName); pBody(); };
+const Expect = (pActual) => ({ to: { equal: (pExpected) =>
+    console.log('    expect', pActual, '===', pExpected, '->', pActual === pExpected ? 'PASS' : 'FAIL')
+}});
+const myFeature = { process: (pInput) => ({ success: pInput.value === 42 }) };
+
 suite('MyFeature', function()
 {
     test('should handle valid input correctly', function()

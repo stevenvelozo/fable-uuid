@@ -24,10 +24,13 @@ const libFableUUID = require('fable-uuid');
 const uuid = new libFableUUID();
 
 // With configuration
-const uuid = new libFableUUID({
+const uuidRandom = new libFableUUID({
     UUIDModeRandom: true,
     UUIDLength: 12
 });
+
+console.log('v4:', uuid.getUUID());
+console.log('random:', uuidRandom.getUUID());
 ```
 
 ### `FableUUID.new(pSettings)`
@@ -52,13 +55,17 @@ The primary method for generating unique identifiers. Returns either a standard 
 - In random mode: delegates to `generateRandom()`
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuid = new libFableUUID();
 const id = uuid.getUUID();
-// Standard mode => "f47ac10b-58cc-4372-a567-0e02b2c3d479"
+console.log('Standard mode:', id);
+// => "f47ac10b-58cc-4372-a567-0e02b2c3d479"
 
 const randomUuid = new libFableUUID({ UUIDModeRandom: true });
 const shortId = randomUuid.getUUID();
-// Random mode => "a1B2c3D4"
+console.log('Random mode:', shortId);
+// => "a1B2c3D4"
 ```
 
 ### `generateUUIDv4()`
@@ -68,8 +75,11 @@ Generates an RFC 4122 version 4 UUID using 16 cryptographic random bytes. Sets t
 **Returns:** `string` - A 36-character UUID in the format `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx`
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuid = new libFableUUID();
 const id = uuid.generateUUIDv4();
+console.log(id);
 // => "550e8400-e29b-41d4-a716-446655440000"
 ```
 
@@ -86,12 +96,15 @@ Generates a random string using `Math.random()` to select characters from the co
 **Returns:** `string` - A random string of length `UUIDLength` from characters in `UUIDDictionary`
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuid = new libFableUUID({
     UUIDModeRandom: true,
     UUIDLength: 10,
     UUIDDictionary: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 });
 const id = uuid.generateRandom();
+console.log(id);
 // => "KQMXWFJTNR"
 ```
 
@@ -108,10 +121,13 @@ Converts a 16-byte buffer into a formatted UUID string. Used internally by `gene
 **Returns:** `string` - A 36-character UUID string with hyphens in the standard positions (8-4-4-4-12)
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuid = new libFableUUID();
 const bytes = new Uint8Array(16);
-// ... fill with values ...
+// (zeros by default — fill the array with random bytes for a real UUID)
 const formatted = uuid.bytesToUUID(bytes);
+console.log(formatted);
 // => "00000000-0000-0000-0000-000000000000"
 ```
 
@@ -131,9 +147,11 @@ const formatted = uuid.bytesToUUID(bytes);
 ```javascript
 const libFableUUID = require('fable-uuid');
 
-// The class itself
-libFableUUID              // FableUUID class (use with `new`)
+// The class itself — use with `new`:
+const direct = new libFableUUID();
+console.log('via constructor:', direct.getUUID());
 
-// Legacy factory
-libFableUUID.new(settings) // Returns a new FableUUID instance
+// Legacy factory — same effect as `new`, kept for backwards compat:
+const viaFactory = libFableUUID.new({ UUIDModeRandom: true, UUIDLength: 8 });
+console.log('via factory:', viaFactory.getUUID());
 ```

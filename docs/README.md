@@ -39,6 +39,8 @@ npm install fable-uuid
 Generates RFC 4122 version 4 UUIDs with cryptographic randomness. These are 36-character strings in the format `xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx`.
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuidGenerator = new libFableUUID();
 console.log(uuidGenerator.getUUID());
 // => "f47ac10b-58cc-4372-a567-0e02b2c3d479"
@@ -49,6 +51,8 @@ console.log(uuidGenerator.getUUID());
 Generates random strings of configurable length from a customizable character dictionary. Useful when you need shorter identifiers or specific character sets.
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuidGenerator = new libFableUUID({
     UUIDModeRandom: true,
     UUIDLength: 12,

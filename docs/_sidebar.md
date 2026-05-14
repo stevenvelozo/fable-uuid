@@ -13,3 +13,5 @@
   - [Resources](resources.md)
   - [Contributing](contributing.md)
   - [Changelog](changelog.md)
+
+- [Code Playground](playground.md)

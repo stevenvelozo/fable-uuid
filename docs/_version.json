@@ -1,7 +1,7 @@
 {
 	"Name": "fable-uuid",
-	"Version": "3.0.13",
+	"Version": "3.0.15",
 	"Description": "A simple UUID Generator.",
-	"GeneratedAt": "2026-04-10T17:19:35.907Z",
-	"GitCommit": "6368c70"
+	"GeneratedAt": "2026-05-14T17:06:17.845Z",
+	"GitCommit": "4835b0e"
 }

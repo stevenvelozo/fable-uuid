@@ -1,6 +1,6 @@
 {
   "name": "fable-uuid",
-  "version": "3.0.14",
+  "version": "3.0.15",
   "description": "A simple UUID Generator.",
   "main": "source/Fable-UUID.js",
   "scripts": {
@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/stevenvelozo/fable-uuid",
   "devDependencies": {
-    "pict-docuserve": "^1.0.1",
+    "pict-docuserve": "^1.1.0",
     "quackage": "^1.2.3"
   },
   "dependencies": {

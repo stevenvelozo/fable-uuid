@@ -4,11 +4,11 @@ Fable-UUID supports two generation modes controlled through a settings object pa
 
 ## Default Configuration
 
-```javascript
+```json
 {
-    UUIDModeRandom: false,
-    UUIDLength: 8,
-    UUIDDictionary: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    "UUIDModeRandom": false,
+    "UUIDLength": 8,
+    "UUIDDictionary": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 }
 ```
 
@@ -47,6 +47,8 @@ When `UUIDModeRandom` is `true`, the generator produces random strings using `Ma
 ### Default Random Mode
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuidGenerator = new libFableUUID({ UUIDModeRandom: true });
 console.log(uuidGenerator.getUUID());
 // => "a1B2c3D4" (8 characters from the full alphanumeric dictionary)
@@ -55,6 +57,8 @@ console.log(uuidGenerator.getUUID());
 ### Custom Length
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuidGenerator = new libFableUUID({
     UUIDModeRandom: true,
     UUIDLength: 5
@@ -66,6 +70,8 @@ console.log(uuidGenerator.getUUID());
 ### Custom Dictionary
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuidGenerator = new libFableUUID({
     UUIDModeRandom: true,
     UUIDLength: 16,
@@ -78,6 +84,8 @@ console.log(uuidGenerator.getUUID());
 ### Minimal Dictionary
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 const uuidGenerator = new libFableUUID({
     UUIDModeRandom: true,
     UUIDLength: 50,
@@ -107,6 +115,8 @@ For applications requiring guaranteed uniqueness, prefer standard mode or use su
 Configuration is set at construction time and cannot be changed after initialization. To switch between modes, create a new instance:
 
 ```javascript
+const libFableUUID = require('fable-uuid');
+
 // Standard mode instance
 const standardUUID = new libFableUUID();
 
@@ -116,4 +126,5 @@ const randomUUID = new libFableUUID({ UUIDModeRandom: true, UUIDLength: 12 });
 // Use both as needed
 const dbKey = standardUUID.getUUID();
 const shortCode = randomUUID.getUUID();
+console.log({ dbKey, shortCode });
 ```
