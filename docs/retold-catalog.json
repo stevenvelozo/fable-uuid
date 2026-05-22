@@ -1,70 +1,83 @@
 {
-	"Generated": "2026-05-14T18:19:46.020Z",
+	"Generated": "2026-05-22T05:38:29.545Z",
+	"Mode": "module",
 	"GitHubOrg": "stevenvelozo",
 	"DefaultBranch": "master",
-	"Groups": [
-		{
-			"Name": ".config",
-			"Key": ".config",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "code-server",
-					"Repo": "code-server",
-					"Group": ".config",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				},
-				{
-					"Name": "configstore",
-					"Repo": "configstore",
-					"Group": ".config",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		},
-		{
-			"Name": "Dist",
-			"Key": "dist",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "indoctrinate_content_staging",
-					"Repo": "indoctrinate_content_staging",
-					"Group": "dist",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		},
-		{
-			"Name": "Docs",
-			"Key": "docs",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "css",
-					"Repo": "css",
-					"Group": "docs",
-					"Branch": "master",
-					"HasDocs": true,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": [
-						"css/docuserve.css"
-					]
-				}
-			]
-		}
-	]
+	"Module": {
+		"Name": "fable-uuid",
+		"Repo": "fable-uuid",
+		"Group": "",
+		"Branch": "master",
+		"HasDocs": true,
+		"HasCover": true,
+		"Sidebar": [
+			{
+				"Title": "Getting Started",
+				"Children": [
+					{
+						"Title": "Introduction",
+						"Path": "README.md"
+					},
+					{
+						"Title": "Configuration",
+						"Path": "configuration.md"
+					}
+				]
+			},
+			{
+				"Title": "Reference",
+				"Children": [
+					{
+						"Title": "API Reference",
+						"Path": "api.md"
+					},
+					{
+						"Title": "Browser Support",
+						"Path": "browser-support.md"
+					}
+				]
+			},
+			{
+				"Title": "Project",
+				"Children": [
+					{
+						"Title": "Resources",
+						"Path": "resources.md"
+					},
+					{
+						"Title": "Contributing",
+						"Path": "contributing.md"
+					},
+					{
+						"Title": "Changelog",
+						"Path": "changelog.md"
+					}
+				]
+			},
+			{
+				"Title": "Code Playground",
+				"Path": "playground.md"
+			}
+		],
+		"DocFiles": [
+			".nojekyll",
+			"README.md",
+			"_brand.json",
+			"_cover.md",
+			"_playground.json",
+			"_sidebar.md",
+			"_version.json",
+			"api.md",
+			"browser-support.md",
+			"changelog.md",
+			"configuration.md",
+			"contributing.md",
+			"index.html",
+			"playground.md",
+			"resources.md",
+			"retold-catalog.json",
+			"retold-keyword-index.json"
+		]
+	},
+	"Groups": []
 }
