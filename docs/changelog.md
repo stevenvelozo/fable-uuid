@@ -54,5 +54,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## Support
 
-- **Bugs**: [GitHub Issues](https://github.com/stevenvelozo/fable-uuid/issues)
-- **Source**: [GitHub Repository](https://github.com/stevenvelozo/fable-uuid)
+- **Bugs**: [GitHub Issues](https://github.com/fable-retold/fable-uuid/issues)
+- **Source**: [GitHub Repository](https://github.com/fable-retold/fable-uuid)

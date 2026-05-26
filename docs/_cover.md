@@ -7,5 +7,5 @@
 - Seamless browser support with WebCrypto API fallbacks
 - Lightweight Fable service provider integration
 
-[GitHub](https://github.com/stevenvelozo/fable-uuid)
+[GitHub](https://github.com/fable-retold/fable-uuid)
 [Get Started](#fable-uuid)

@@ -6,31 +6,31 @@ A curated list of resources, tools, and projects related to Fable-UUID and the F
 
 ### Fable Ecosystem
 
-- [Fable](https://github.com/stevenvelozo/fable) - Service provider framework that powers the ecosystem
-- [Fable-UUID](https://github.com/stevenvelozo/fable-uuid) - UUID generator (this library)
-- [Fable-ServiceProviderBase](https://github.com/stevenvelozo/fable-serviceproviderbase) - Base class for Fable services
-- [Fable-Log](https://github.com/stevenvelozo/fable-log) - Logging service for Fable
-- [Fable-Settings](https://github.com/stevenvelozo/fable-settings) - Settings management for Fable
+- [Fable](https://github.com/fable-retold/fable) - Service provider framework that powers the ecosystem
+- [Fable-UUID](https://github.com/fable-retold/fable-uuid) - UUID generator (this library)
+- [Fable-ServiceProviderBase](https://github.com/fable-retold/fable-serviceproviderbase) - Base class for Fable services
+- [Fable-Log](https://github.com/fable-retold/fable-log) - Logging service for Fable
+- [Fable-Settings](https://github.com/fable-retold/fable-settings) - Settings management for Fable
 
 ### Pict Framework
 
-- [Pict](https://github.com/stevenvelozo/pict) - MVC framework for text-based UI applications
-- [Pict-View](https://github.com/stevenvelozo/pict-view) - View base class for Pict
-- [Pict-Application](https://github.com/stevenvelozo/pict-application) - Application wrapper for Pict
-- [Pict-Provider](https://github.com/stevenvelozo/pict-provider) - Data providers for Pict
-- [Pict-Template](https://github.com/stevenvelozo/pict-template) - Template engine for Pict
+- [Pict](https://github.com/fable-retold/pict) - MVC framework for text-based UI applications
+- [Pict-View](https://github.com/fable-retold/pict-view) - View base class for Pict
+- [Pict-Application](https://github.com/fable-retold/pict-application) - Application wrapper for Pict
+- [Pict-Provider](https://github.com/fable-retold/pict-provider) - Data providers for Pict
+- [Pict-Template](https://github.com/fable-retold/pict-template) - Template engine for Pict
 
 ### Backend Ecosystem
 
-- [Meadow](https://github.com/stevenvelozo/meadow) - Data access layer for Fable
-- [Orator](https://github.com/stevenvelozo/orator) - Service server framework
-- [Foxhound](https://github.com/stevenvelozo/foxhound) - Query parser and generator
+- [Meadow](https://github.com/fable-retold/meadow) - Data access layer for Fable
+- [Orator](https://github.com/fable-retold/orator) - Service server framework
+- [Foxhound](https://github.com/fable-retold/foxhound) - Query parser and generator
 
 ## Documentation
 
-- [Fable-UUID Documentation](https://stevenvelozo.github.io/fable-uuid/) - This documentation site
-- [Pict Documentation](https://stevenvelozo.github.io/pict/) - Main Pict framework docs
-- [Pict-View Documentation](https://stevenvelozo.github.io/pict-view/) - Pict-View docs
+- [Fable-UUID Documentation](https://fable-retold.github.io/fable-uuid/) - This documentation site
+- [Pict Documentation](https://fable-retold.github.io/pict/) - Main Pict framework docs
+- [Pict-View Documentation](https://fable-retold.github.io/pict-view/) - Pict-View docs
 
 ## Reference Material
 
@@ -47,7 +47,7 @@ A curated list of resources, tools, and projects related to Fable-UUID and the F
 
 ### Development
 
-- [Quackage](https://github.com/stevenvelozo/quackage) - Build tool used by Fable projects
+- [Quackage](https://github.com/fable-retold/quackage) - Build tool used by Fable projects
 - [Browserify](http://browserify.org/) - Bundle Fable-UUID for browser use
 
 ### Testing
@@ -60,7 +60,7 @@ A curated list of resources, tools, and projects related to Fable-UUID and the F
 
 ### Getting Help
 
-- [GitHub Issues](https://github.com/stevenvelozo/fable-uuid/issues) - Report bugs or request features
+- [GitHub Issues](https://github.com/fable-retold/fable-uuid/issues) - Report bugs or request features
 
 ### Contributing
 
@@ -73,4 +73,4 @@ We welcome contributions! Here's how you can help:
 
 ## License
 
-Fable-UUID is released under the [MIT License](https://github.com/stevenvelozo/fable-uuid/blob/master/LICENSE).
+Fable-UUID is released under the [MIT License](https://github.com/fable-retold/fable-uuid/blob/master/LICENSE).

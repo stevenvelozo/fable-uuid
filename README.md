@@ -44,16 +44,16 @@ console.log(shortId.getUUID());
 
 ## Documentation
 
-Full documentation is available at **[stevenvelozo.github.io/fable-uuid](https://stevenvelozo.github.io/fable-uuid/)**.
+Full documentation is available at **[stevenvelozo.github.io/fable-uuid](https://fable-retold.github.io/fable-uuid/)**.
 
-- [Configuration Guide](https://stevenvelozo.github.io/fable-uuid/#/configuration)
-- [API Reference](https://stevenvelozo.github.io/fable-uuid/#/api)
-- [Browser Support](https://stevenvelozo.github.io/fable-uuid/#/browser-support)
+- [Configuration Guide](https://fable-retold.github.io/fable-uuid/#/configuration)
+- [API Reference](https://fable-retold.github.io/fable-uuid/#/api)
+- [Browser Support](https://fable-retold.github.io/fable-uuid/#/browser-support)
 
 ## Related Packages
 
-- [fable](https://github.com/stevenvelozo/fable) - Application services framework
-- [fable-serviceproviderbase](https://github.com/stevenvelozo/fable-serviceproviderbase) - Service provider base class
+- [fable](https://github.com/fable-retold/fable) - Application services framework
+- [fable-serviceproviderbase](https://github.com/fable-retold/fable-serviceproviderbase) - Service provider base class
 
 ## License
 
