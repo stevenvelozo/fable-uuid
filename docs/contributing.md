@@ -117,7 +117,7 @@ Feature requests are welcome! Please:
 - Place opening braces on the same line
 
 ```javascript
-// Style reference — `doSomething` and `transform` are placeholders,
+// Style reference - `doSomething` and `transform` are placeholders,
 // so the example uses local stubs so it actually runs and prints.
 const doSomething = () => 'did something';
 const transform   = (pInput) => ({ Transformed: pInput });
@@ -178,7 +178,7 @@ npm run coverage
 - Keep tests focused and independent
 
 ```javascript
-// Mocha + Chai style — the suite/test/Expect globals come from the
+// Mocha + Chai style - the suite/test/Expect globals come from the
 // test runner at `npm test`.  In the playground we stub them so the
 // shape of a real test is demonstrable, and the assertion runs
 // against a local fake instead of a real subject under test.

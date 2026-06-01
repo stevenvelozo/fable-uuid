@@ -125,7 +125,7 @@ const libFableUUID = require('fable-uuid');
 
 const uuid = new libFableUUID();
 const bytes = new Uint8Array(16);
-// (zeros by default — fill the array with random bytes for a real UUID)
+// (zeros by default - fill the array with random bytes for a real UUID)
 const formatted = uuid.bytesToUUID(bytes);
 console.log(formatted);
 // => "00000000-0000-0000-0000-000000000000"
@@ -147,11 +147,11 @@ console.log(formatted);
 ```javascript
 const libFableUUID = require('fable-uuid');
 
-// The class itself — use with `new`:
+// The class itself - use with `new`:
 const direct = new libFableUUID();
 console.log('via constructor:', direct.getUUID());
 
-// Legacy factory — same effect as `new`, kept for backwards compat:
+// Legacy factory - same effect as `new`, kept for backwards compat:
 const viaFactory = libFableUUID.new({ UUIDModeRandom: true, UUIDLength: 8 });
 console.log('via factory:', viaFactory.getUUID());
 ```

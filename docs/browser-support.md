@@ -21,7 +21,7 @@ Bundlers like Browserify and Webpack automatically resolve the browser-specific 
 In Node.js, random bytes are generated using the built-in `crypto` module:
 
 ```javascript
-// Node.js reference — this won't run in the browser playground (the
+// Node.js reference - this won't run in the browser playground (the
 // 'crypto' module isn't available via require here), so we just print
 // what the equivalent Node code looks like.
 console.info("In Node.js: const crypto = require('crypto'); crypto.randomBytes(16);");
@@ -50,7 +50,7 @@ console.log('16 random bytes:', Array.from(buffer));
 For Internet Explorer 11, the module falls back to the prefixed `msCrypto` implementation:
 
 ```javascript
-// IE11-only — `window.msCrypto` doesn't exist in modern browsers, so
+// IE11-only - `window.msCrypto` doesn't exist in modern browsers, so
 // gate the call with a feature check and print a friendly note in the
 // playground (which is running in a modern browser).
 const buffer = new Uint8Array(16);
@@ -110,7 +110,7 @@ Browserify automatically resolves the browser field in `package.json` and includ
 Webpack also respects the `browser` field by default. No additional configuration is needed:
 
 ```javascript
-// webpack.config.js — this is a build-time config, not a runnable
+// webpack.config.js - this is a build-time config, not a runnable
 // snippet, so we just print it as reference text.
 const webpackConfig = {
     entry: './app.js',
