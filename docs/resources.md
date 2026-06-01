@@ -6,25 +6,25 @@ A curated list of resources, tools, and projects related to Fable-UUID and the F
 
 ### Fable Ecosystem
 
-- [Fable](https://github.com/fable-retold/fable) - Service provider framework that powers the ecosystem
+- [Fable](https://fable-retold.github.io/fable/) - Service provider framework that powers the ecosystem
 - [Fable-UUID](https://github.com/fable-retold/fable-uuid) - UUID generator (this library)
-- [Fable-ServiceProviderBase](https://github.com/fable-retold/fable-serviceproviderbase) - Base class for Fable services
-- [Fable-Log](https://github.com/fable-retold/fable-log) - Logging service for Fable
-- [Fable-Settings](https://github.com/fable-retold/fable-settings) - Settings management for Fable
+- [Fable-ServiceProviderBase](https://fable-retold.github.io/fable-serviceproviderbase/) - Base class for Fable services
+- [Fable-Log](https://fable-retold.github.io/fable-log/) - Logging service for Fable
+- [Fable-Settings](https://fable-retold.github.io/fable-settings/) - Settings management for Fable
 
 ### Pict Framework
 
-- [Pict](https://github.com/fable-retold/pict) - MVC framework for text-based UI applications
-- [Pict-View](https://github.com/fable-retold/pict-view) - View base class for Pict
-- [Pict-Application](https://github.com/fable-retold/pict-application) - Application wrapper for Pict
-- [Pict-Provider](https://github.com/fable-retold/pict-provider) - Data providers for Pict
-- [Pict-Template](https://github.com/fable-retold/pict-template) - Template engine for Pict
+- [Pict](https://fable-retold.github.io/pict/) - MVC framework for text-based UI applications
+- [Pict-View](https://fable-retold.github.io/pict-view/) - View base class for Pict
+- [Pict-Application](https://fable-retold.github.io/pict-application/) - Application wrapper for Pict
+- [Pict-Provider](https://fable-retold.github.io/pict-provider/) - Data providers for Pict
+- [Pict-Template](https://fable-retold.github.io/pict-template/) - Template engine for Pict
 
 ### Backend Ecosystem
 
-- [Meadow](https://github.com/fable-retold/meadow) - Data access layer for Fable
-- [Orator](https://github.com/fable-retold/orator) - Service server framework
-- [Foxhound](https://github.com/fable-retold/foxhound) - Query parser and generator
+- [Meadow](https://fable-retold.github.io/meadow/) - Data access layer for Fable
+- [Orator](https://fable-retold.github.io/orator/) - Service server framework
+- [Foxhound](https://fable-retold.github.io/foxhound/) - Query parser and generator
 
 ## Documentation
 
@@ -47,7 +47,7 @@ A curated list of resources, tools, and projects related to Fable-UUID and the F
 
 ### Development
 
-- [Quackage](https://github.com/fable-retold/quackage) - Build tool used by Fable projects
+- [Quackage](https://fable-retold.github.io/quackage/) - Build tool used by Fable projects
 - [Browserify](http://browserify.org/) - Bundle Fable-UUID for browser use
 
 ### Testing

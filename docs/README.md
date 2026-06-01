@@ -71,7 +71,7 @@ console.log(uuidGenerator.getUUID());
 
 ## Related Packages
 
-- [fable](https://github.com/fable-retold/fable) - Service provider framework
-- [fable-serviceproviderbase](https://github.com/fable-retold/fable-serviceproviderbase) - Base class for Fable services
-- [fable-log](https://github.com/fable-retold/fable-log) - Logging service for Fable
-- [fable-settings](https://github.com/fable-retold/fable-settings) - Settings management for Fable
+- [fable](https://fable-retold.github.io/fable/) - Service provider framework
+- [fable-serviceproviderbase](https://fable-retold.github.io/fable-serviceproviderbase/) - Base class for Fable services
+- [fable-log](https://fable-retold.github.io/fable-log/) - Logging service for Fable
+- [fable-settings](https://fable-retold.github.io/fable-settings/) - Settings management for Fable
