@@ -1,5 +1,7 @@
 # Fable-UUID
 
+> **[Read the Fable-UUID Documentation](https://fable-retold.github.io/fable-uuid/)**
+
 A simple, flexible UUID generator for Node.js and browsers.
 
 
